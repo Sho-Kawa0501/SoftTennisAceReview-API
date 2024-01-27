@@ -21,8 +21,6 @@ env.read_env(os.path.join(BASE_DIR, '.env'))
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = 'RENDER' not in os.environ
 
-
-
 SECRET_KEY = os.environ.get('SECRET_KEY', default=os.environ['SECRET_KEY'])
 
 ALLOWED_HOSTS = [
@@ -30,13 +28,8 @@ ALLOWED_HOSTS = [
     'https://softtennis-ace-review.com',
     'https://www.soft-tennis-star-review.com',
     'https://soft-tennis-star-review.com',
-    '127.0.0.1',
     'softtennis-ace-review.com',
     'soft-tennis-star-review.com',
-    'http://127.0.0.1:3000',
-    'http://localhost:3000',
-    'http://localhost:8000',
-    'http://127.0.0.1:8000',
 ]
 
 RENDER_EXTERNAL_HOSTNAME = os.environ.get('RENDER_EXTERNAL_HOSTNAME')
@@ -73,8 +66,6 @@ MIDDLEWARE = [
 ]
 
 CSRF_TRUSTED_ORIGINS = [
-    'http://127.0.0.1:3000',
-    'http://localhost:3000',
     'https://www.softtennis-ace-review.com',
     'https://softtennis-ace-review.com',
 ]
@@ -83,15 +74,11 @@ CORS_ORIGIN_ALLOW_ALL = False
 CORS_ALLOW_CREDENTIALS = True
 
 CORS_ORIGIN_WHITELIST = [
-    'http://127.0.0.1:3000',
-    'http://localhost:3000',
     'https://www.softtennis-ace-review.com',
     'https://softtennis-ace-review.com',
 ]
 
 CORS_ALLOWED_ORIGINS = [
-    'http://127.0.0.1:3000',
-    'http://localhost:3000',
     'https://www.softtennis-ace-review.com',
     'https://softtennis-ace-review.com',
 ]
@@ -188,7 +175,6 @@ SIMPLE_JWT = {
     'BLACKLIST_AFTER_ROTATION': False,
     'AUTH_HEADER_NAME': "HTTP_AUTHORIZATION",
     'AUTH_HEADER_TYPES': ('JWT','Bearer'),
-    # 'AUTH_TOKEN_CLASSES': ('rest_framework_simplejwt.tokens.AccessToken', ),
     'AUTH_COOKIE_HTTP_ONLY': True,
 }
 
