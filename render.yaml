@@ -1,0 +1,32 @@
+databases:
+  - name: api_db
+    plan: free
+    databaseName: api_db
+    user: api_db
+
+services:
+  - type: web
+    name: SoftTennisAceReview-API1
+    plan: free
+    env: python
+    buildCommand: "./build.sh"
+    startCommand: "gunicorn reviewsite.wsgi:application"
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: api_db
+          property: connectionString
+      - key: SECRET_KEY
+        generateValue: true
+      - key: WEB_CONCURRENCY
+        value: 4
+      - key: DJANGO_SUPERUSER_PASSWORD
+        generateValue: true
+      - key: AWS_ACCESS_KEY_ID
+        generateValue: true
+      - key: AWS_ACCESS_SECRET_KEY
+        generateValue: true
+      - key: AWS_S3_REGION_NAME
+        generateValue: true
+      - key: AWS_STORAGE_BUCKET_NAME
+        generateValue: true
